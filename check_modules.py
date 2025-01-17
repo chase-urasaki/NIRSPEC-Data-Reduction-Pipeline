@@ -1,4 +1,9 @@
-import imp
+try:
+    import imp
+
+except ImportError: 
+    import importlib
+    imp = importlib
 
 MODULES = [
     'os',
@@ -24,7 +29,7 @@ missingModules = []
 def is_missing():
     for m in MODULES:
         try:
-            imp.find_module(m)
+            imp.import_module(m)
         except ImportError:
             missingModules.append(m)
 
