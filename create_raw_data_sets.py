@@ -78,11 +78,11 @@ def create(in_dir):
     # associate darks and flats with each object frame
     for rawDataSet in rawDataSets:
         for filename, header in list(headers.items()):
-            if (header['IMAGETYP'] == 'flatlamp'):
+            if (header['IMTYPE'] == 'flatlamp'):
                 if len(rawDataSet.flatFns) < config.params['max_n_flats']:
                     if flat_criteria_met(rawDataSet.objHeader, header):
                         rawDataSet.flatFns.append(filename)
-            elif (header['IMAGETYP'] == 'dark'):
+            elif (header['IMTYPE'] == 'dark'):
                 if len(rawDataSet.darkFns) < config.params['max_n_darks']:
                     if dark_criteria_met(rawDataSet.objHeader, header):
                         rawDataSet.darkFns.append(filename)
@@ -161,7 +161,7 @@ def obj_criteria_met(header, failed2reduce):
 #        failed2reduce['dmode'] += 1
 #        return False
     if config.params['cmnd_line_mode'] is False:
-        if header['IMAGETYP'].lower() != 'object':
+        if header['IMTYPE'].lower() != 'object':
             #           failed2reduce['itype'] += 1
             return False
     if config.params['cmnd_line_mode'] is False:

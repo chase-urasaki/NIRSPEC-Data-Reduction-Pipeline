@@ -13,8 +13,13 @@ import Flat
 from logging import INFO
 import Order
 import image_lib
-import imp
+try:
+    import imp
 
+except ImportError: 
+    import importlib
+    imp = importlib
+    
 logger = logging.getLogger('obj')
 # main_logger = logging.getLogger('main')
 # main_logger = logging.getLogger('main')

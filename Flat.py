@@ -11,7 +11,7 @@ from DrpException import DrpException
 import FlatOrder
 import nirspec_lib
 import image_lib
-from numpy.testing.utils import measure
+#from numpy.testing.utils import measure
 
 
 class Flat:
