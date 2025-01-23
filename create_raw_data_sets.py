@@ -59,10 +59,10 @@ def create(in_dir):
             logger.info('Failed to reduced {} files because of low dispersion mode'.format(
                 failed2reduce.get('dispmode')))
         elif failed2reduce.get('n1') is not None:
-            logger.info('Failed to reduced {} files because NAXIS1 != 1024'.format(
+            logger.info('Failed to reduced {} files because NAXIS1 != 2048'.format(
                 failed2reduce.get('n1')))
         elif failed2reduce.get('n2') is not None:
-            logger.info('Failed to reduced {} files because NAXIS2 != 1024'.format(
+            logger.info('Failed to reduced {} files because NAXIS2 != 2048'.format(
                 failed2reduce.get('n2')))
         elif failed2reduce.get('fil') is not None:
             logger.info('Failed to reduce {} files because of unsupported filter'.format(
@@ -174,7 +174,7 @@ def obj_criteria_met(header, failed2reduce):
     if header['NAXIS2'] != nirspec_constants.N_ROWS:
         failed2reduce['n2'] += 1
         return False
-    if header['FILNAME'].upper() not in nirspec_constants.filter_names:
+    if header['FILTER'].upper() not in nirspec_constants.filter_names:
         failed2reduce['fil'] += 1
         return False
     return True

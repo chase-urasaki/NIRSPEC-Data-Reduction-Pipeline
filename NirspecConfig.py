@@ -7,12 +7,12 @@ class NirspecConfig:
         self.header = header
 
     def isTheSame(self, header):
-        for kwd in ['disppos', 'echlpos', 'filname', 'slitname']:
+        for kwd in ['disppos', 'echlpos', 'FILTER', 'SLITNAME']:
             if self.header[kwd] != header[kwd]:
                 return False
         return True
 
     def toString(self):
-        return 'disppos={}, echlpos={}, filname={}, slitname={}'.format(
+        return 'disppos={}, echlpos={}, filter={}, slitname={}'.format(
             self.header['disppos'], self.header['echlpos'],
-            self.header['filname'], self.header['slitname'])
+            self.header['FILTER'], self.header['SLITNAME'])

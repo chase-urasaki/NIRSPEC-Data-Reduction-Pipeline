@@ -113,20 +113,20 @@ class ReducedDataSet:
         return self.header['NAXIS1'], self.header['NAXIS2']
 
     def getFilter(self):
-        if self.header['filname'].startswith(
-                'NIRSPEC') and len(self.header['filname']) > 9:
-            return self.header['filname'][:9]
+        if self.header['FITLER'].startswith(
+                'NIRSPEC') and len(self.header['FILTER']) > 9:
+            return self.header['FILTER'][:9]
         else:
-            return self.header['filname']
+            return self.header['FILTER']
 
     def getFullFilterName(self):
-        return self.header['filname']
+        return self.header['FILTER']
 
     def getEchPos(self):
-        return self.header['echlpos']
+        return self.header['ECHLPOS']
 
     def getDispPos(self):
-        return self.header['disppos']
+        return self.header['DISPPOS']
 
     def getSlit(self):
         return self.header['slitname']
